@@ -72,3 +72,4 @@ class TopicSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(attrs={"placeholder": "Search by topic..."})
     )
+
