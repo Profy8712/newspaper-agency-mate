@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Newspapers{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Newspapers</h1>
+        {% if user.is_authenticated %}
+            <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> Add Newspaper
+            </a>
+        {% endif %}
+    </div>
+
+    {% include "includes/search_form.html" with form=search_form %}
+
+    {% if newspaper_list %}
+        <div class="list-group">
+            {% for newspaper in newspaper_list %}
+                <div class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">
+                            <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.pk %}">
+                                {{ newspaper.title }}
+                            </a>
+                        </h5>
+                        <small class="text-muted">{{ newspaper.published_date }}</small>
+                    </div>
+                    <p class="mb-1">{{ newspaper.content|truncatewords:30 }}</p>
+                    <small>
+                        <strong>Topic:</strong> {{ newspaper.topic.name }} |
+                        <strong>Publishers:</strong>
+                        {% for publisher in newspaper.publishers.all %}
+                            {{ publisher.username }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </small>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% include "includes/pagination.html" %}
+    {% else %}
+        <div class="alert alert-info">No newspapers found.</div>
+    {% endif %}
+{% endblock %}
