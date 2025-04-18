@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Newspaper Agency</h1>
+    <p>Welcome to Newspaper Management System</p>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Newspapers</h2>
+            <p>{{ num_newspapers }} available</p>
+            <a href="{% url 'newspaper:newspaper-list' %}" class="btn btn-primary">View</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Topics</h2>
+            <p>{{ num_topics }} available</p>
+            <a href="{% url 'newspaper:topic-list' %}" class="btn btn-primary">View</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Redactors</h2>
+            <p>{{ num_redactors }} registered</p>
+            <a href="{% url 'newspaper:redactor-list' %}" class="btn btn-primary">View</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
