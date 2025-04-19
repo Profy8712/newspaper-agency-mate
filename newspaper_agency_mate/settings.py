@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-from pathlib import Path
 import django
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -67,7 +66,9 @@ ROOT_URLCONF = "newspaper_agency_mate.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
+        "DIRS": [BASE_DIR / 'templates', os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'newspaper/templates')]
+
         ,
         "APP_DIRS": True,
         "OPTIONS": {

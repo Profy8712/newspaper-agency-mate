@@ -1,20 +1,57 @@
+/* Basic styles */
 body {
     padding-top: 20px;
     background-color: #f8f9fa;
 }
 
 .jumbotron {
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
     background-color: #e9ecef;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
 }
 
+/* Cards */
 .card {
-    margin-bottom: 1rem;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 20px;
 }
 
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: #495057;
+    box-shadow: 0 0 0 0.2rem rgba(73, 80, 87, 0.25);
+}
+
+/* Navigation */
 .navbar {
     margin-bottom: 20px;
+}
+
+/* Adaptive paddings */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Specific styles for elements */
+.search-form {
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    transition: background-color 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Icons */
+.bi {
+    margin-right: 5px;
 }
