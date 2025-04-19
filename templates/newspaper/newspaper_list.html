@@ -1,46 +1,84 @@
-{% extends "newspaper/base.html" %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
 {% block title %}Newspapers{% endblock %}
 
 {% block content %}
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Newspapers</h1>
-        {% if user.is_authenticated %}
-            <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary">
-                <i class="bi bi-plus-lg"></i> Add Newspaper
-            </a>
-        {% endif %}
-    </div>
-
-    {% include "includes/search_form.html" with form=search_form %}
-
-    {% if newspaper_list %}
-        <div class="list-group">
-            {% for newspaper in newspaper_list %}
-                <div class="list-group-item">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">
-                            <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.pk %}">
-                                {{ newspaper.title }}
-                            </a>
-                        </h5>
-                        <small class="text-muted">{{ newspaper.published_date }}</small>
-                    </div>
-                    <p class="mb-1">{{ newspaper.content|truncatewords:30 }}</p>
-                    <small>
-                        <strong>Topic:</strong> {{ newspaper.topic.name }} |
-                        <strong>Publishers:</strong>
-                        {% for publisher in newspaper.publishers.all %}
-                            {{ publisher.username }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </small>
-                </div>
-            {% endfor %}
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3 mb-0">
+                <i class="bi bi-file-text text-primary me-2"></i> Newspapers
+            </h1>
+            {% if user.is_authenticated %}
+                <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary">
+                    <i class="bi bi-plus-lg"></i> Add Newspaper
+                </a>
+            {% endif %}
         </div>
 
-        {% include "includes/pagination.html" %}
-    {% else %}
-        <div class="alert alert-info">No newspapers found.</div>
-    {% endif %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="get" action="" class="row g-3 align-items-center">
+                    <div class="col-md-8">
+                        {{ search_form.title }}
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary w-100" type="submit">
+                            <i class="bi bi-search"></i> Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% if newspaper_list %}
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for newspaper in newspaper_list %}
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">
+                                    <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.pk %}" class="text-decoration-none">
+                                        {{ newspaper.title }}
+                                    </a>
+                                </h5>
+                                <span class="badge bg-primary rounded-pill">
+                                    {{ newspaper.topic.name }}
+                                </span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{ newspaper.content|truncatewords:30 }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar"></i> {{ newspaper.published_date }}
+                                    </small>
+                                    <small>
+                                        <i class="bi bi-person"></i> {{ newspaper.publishers.count }} publisher{{ newspaper.publishers.count|pluralize }}
+                                    </small>
+                                </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <div class="d-flex justify-content-end">
+                                        <a href="{% url 'newspaper:newspaper-update' pk=newspaper.pk %}" class="btn btn-sm btn-outline-secondary me-2">
+                                            <i class="bi bi-pencil"></i> Edit
+                                        </a>
+                                        <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.pk %}" class="btn btn-sm btn-outline-danger">
+                                            <i class="bi bi-trash"></i> Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% include "includes/pagination.html" %}
+        {% else %}
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> No newspapers found.
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

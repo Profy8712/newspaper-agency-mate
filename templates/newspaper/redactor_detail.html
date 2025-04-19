@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}{{ redactor.username }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <div class="avatar-placeholder bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 150px; height: 150px;">
+                            <i class="bi bi-person-fill text-primary" style="font-size: 4rem;"></i>
+                        </div>
+
+                        <h3 class="mb-1">{{ redactor.username }}</h3>
+                        <p class="text-muted mb-3">{{ redactor.first_name }} {{ redactor.last_name }}</p>
+
+                        <div class="d-flex justify-content-center gap-3 mb-4">
+                            <div class="text-center">
+                                <h5 class="mb-0">{{ redactor.years_of_experience }}</h5>
+                                <small class="text-muted">Years</small>
+                            </div>
+                            <div class="text-center">
+                                <h5 class="mb-0">{{ redactor.newspapers.count }}</h5>
+                                <small class="text-muted">Newspapers</small>
+                            </div>
+                        </div>
+
+                        {% if user.is_authenticated %}
+                            <div class="d-grid gap-2">
+                                <a href="{% url 'newspaper:redactor-update' pk=redactor.pk %}" class="btn btn-outline-primary">
+                                    <i class="bi bi-pencil"></i> Edit Profile
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Contact Info</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2">
+                                <i class="bi bi-envelope me-2 text-primary"></i> {{ redactor.email|default:"Not specified" }}
+                            </li>
+                            <li>
+                                <i class="bi bi-calendar me-2 text-primary"></i> Joined {{ redactor.date_joined|date:"M d, Y" }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Published Newspapers</h5>
+                        <span class="badge bg-primary rounded-pill">{{ redactor.newspapers.count }}</span>
+                    </div>
+
+                    {% if redactor.newspapers.all %}
+                        <div class="list-group list-group-flush">
+                            {% for newspaper in redactor.newspapers.all %}
+                                <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.pk %}" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">{{ newspaper.title }}</h6>
+                                        <small class="text-muted">{{ newspaper.published_date }}</small>
+                                    </div>
+                                    <p class="mb-1">{{ newspaper.content|truncatewords:20 }}</p>
+                                    <small class="text-muted">
+                                        <span class="badge bg-primary bg-opacity-10 text-primary">
+                                            {{ newspaper.topic.name }}
+                                        </span>
+                                    </small>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="card-body text-center py-5">
+                            <i class="bi bi-newspaper text-muted" style="font-size: 3rem;"></i>
+                            <p class="mt-3 mb-0 text-muted">No newspapers published yet.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <a href="{% url 'newspaper:redactor-list' %}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Back to Redactors
+        </a>
+    </div>
+{% endblock %}
