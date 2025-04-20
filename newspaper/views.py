@@ -1,7 +1,10 @@
+from typing import Any
+
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.urls import reverse_lazy
 from django.views import generic
-from django.db.models import Q
+
 from .models import Newspaper, Redactor, Topic
 from .forms import (
     NewspaperForm,
@@ -17,7 +20,7 @@ from .forms import (
 class IndexView(generic.TemplateView):
     template_name = "newspaper/index.html"
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self: Any, **kwargs: Any) -> dict:
         context = super().get_context_data(**kwargs)
         context["num_newspapers"] = Newspaper.objects.count()
         context["num_redactors"] = Redactor.objects.count()
@@ -30,17 +33,29 @@ class NewspaperListView(generic.ListView):
     paginate_by = 5
     template_name = "newspaper/newspaper_list.html"
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self: Any, **kwargs: Any) -> dict:
         context = super().get_context_data(**kwargs)
         title = self.request.GET.get("title", "")
-        context["search_form"] = NewspaperSearchForm(initial={"title": title})
+        topic_id = self.request.GET.get("topic")
+        context["search_form"] = NewspaperSearchForm(
+            initial={"title": title, "topic": topic_id}
+        )
         return context
 
-    def get_queryset(self):
-        queryset = Newspaper.objects.select_related("topic").prefetch_related("publishers")
-        form = NewspaperSearchForm(self.request.GET)
-        if form.is_valid() and form.cleaned_data["title"]:
-            return queryset.filter(title__icontains=form.cleaned_data["title"])
+    def get_queryset(self: Any) -> Any:
+        queryset = Newspaper.objects.select_related("topic").prefetch_related(
+            "publishers"
+        )
+        title = self.request.GET.get("title")
+        topic_id = self.request.GET.get("topic")
+
+        if title:
+            queryset = queryset.filter(
+                Q(title__icontains=title) | Q(content__icontains=title)
+            )
+        if topic_id:
+            queryset = queryset.filter(topic_id=topic_id)
+
         return queryset
 
 
@@ -74,17 +89,17 @@ class TopicListView(generic.ListView):
     paginate_by = 5
     template_name = "newspaper/topic_list.html"
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self: Any, **kwargs: Any) -> dict:
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
         context["search_form"] = TopicSearchForm(initial={"name": name})
         return context
 
-    def get_queryset(self):
+    def get_queryset(self: Any) -> Any:
         queryset = Topic.objects.prefetch_related("newspapers")
-        form = TopicSearchForm(self.request.GET)
-        if form.is_valid() and form.cleaned_data["name"]:
-            return queryset.filter(name__icontains=form.cleaned_data["name"])
+        name = self.request.GET.get("name")
+        if name:
+            queryset = queryset.filter(name__icontains=name)
         return queryset
 
 
@@ -113,17 +128,25 @@ class RedactorListView(generic.ListView):
     paginate_by = 5
     template_name = "newspaper/redactor_list.html"
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self: Any, **kwargs: Any) -> dict:
         context = super().get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        context["search_form"] = RedactorSearchForm(initial={"username": username})
+        years = self.request.GET.get("years", "")
+        context["search_form"] = RedactorSearchForm(
+            initial={"username": username, "years": years}
+        )
         return context
 
-    def get_queryset(self):
+    def get_queryset(self: Any) -> Any:
         queryset = Redactor.objects.all()
-        form = RedactorSearchForm(self.request.GET)
-        if form.is_valid() and form.cleaned_data["username"]:
-            return queryset.filter(username__icontains=form.cleaned_data["username"])
+        username = self.request.GET.get("username")
+        years = self.request.GET.get("years")
+
+        if username:
+            queryset = queryset.filter(username__icontains=username)
+        if years:
+            queryset = queryset.filter(years_of_experience=years)
+
         return queryset
 
 
@@ -150,4 +173,3 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Redactor
     template_name = "newspaper/redactor_confirm_delete.html"
     success_url = reverse_lazy("newspaper:redactor-list")
-
