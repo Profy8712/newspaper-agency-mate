@@ -1,5 +1,6 @@
-/* Base Styles */
+/* ========== CSS Variables ========== */
 :root {
+    /* Color palette */
     --primary: #0d6efd;
     --secondary: #6c757d;
     --success: #198754;
@@ -8,34 +9,83 @@
     --danger: #dc3545;
     --light: #f8f9fa;
     --dark: #212529;
+
+    /* Font stack */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Spacing */
+    --navbar-height: 56px;
+}
+
+/* ========== Base Styles ========== */
+html {
+    height: 100%;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #212529;
-    background-color: #f8f9fa;
-    padding-top: 56px;
+    font-family: var(--font-main);
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+    padding-top: var(--navbar-height);
+    min-height: 100%;
+    position: relative;
+
+    /* Background image settings */
+    background: url('../img/newspaper.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    /* Fallback if image doesn't load */
+    background-color: #f0f0f0;
 }
 
-/* Navbar */
+/* Semi-transparent overlay for better readability */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 249, 250, 0.7);
+    z-index: -1;
+}
+
+/* ========== Layout Components ========== */
+/* Navbar styles */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .navbar-brand img {
     transition: transform 0.3s ease;
+    height: 40px;
 }
 
 .navbar-brand:hover img {
     transform: scale(1.05);
 }
 
-/* Cards */
+/* Main content container */
+.main-container {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========== Card Styles ========== */
 .card {
     border: none;
     border-radius: 0.5rem;
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
     transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .card:hover {
@@ -45,29 +95,22 @@ body {
 
 .card-header {
     border-bottom: 1px solid rgba(0,0,0,.05);
+    background-color: rgba(0,0,0,.03);
 }
 
-/* Badges */
+/* ========== Badge Styles ========== */
 .badge {
     font-weight: 500;
     padding: 0.35em 0.65em;
+    font-size: 0.85em;
 }
 
-.badge-politics { background-color: #dc3545; color: white; }
-.badge-crime { background-color: #212529; color: white; }
+.badge-politics { background-color: var(--danger); color: white; }
+.badge-crime { background-color: var(--dark); color: white; }
 .badge-art { background-color: #6f42c1; color: white; }
-.badge-weather { background-color: #0dcaf0; color: white; }
+.badge-weather { background-color: var(--info); color: white; }
 
-/* Avatar Placeholder */
-.avatar-placeholder {
-    background-color: rgba(13, 110, 253, 0.1);
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Article Content */
+/* ========== Article Styles ========== */
 .article-content {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -77,24 +120,59 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-
-    .hero-section p {
-        font-size: 1rem;
-    }
+.article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    margin: 1rem 0;
 }
 
-/* Topic Colors */
-.text-politics { color: #dc3545; }
-.text-crime { color: #212529; }
+/* ========== Topic Colors ========== */
+.text-politics { color: var(--danger); }
+.text-crime { color: var(--dark); }
 .text-art { color: #6f42c1; }
-.text-weather { color: #0dcaf0; }
+.text-weather { color: var(--info); }
 
 .bg-politics { background-color: rgba(220, 53, 69, 0.1); }
 .bg-crime { background-color: rgba(33, 37, 41, 0.1); }
 .bg-art { background-color: rgba(111, 66, 193, 0.1); }
 .bg-weather { background-color: rgba(13, 202, 240, 0.1); }
+
+/* ========== Responsive Adjustments ========== */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Disable fixed on mobile */
+        padding-top: 50px;
+    }
+
+    .navbar-brand img {
+        height: 30px;
+    }
+
+    .main-container {
+        padding: 1rem;
+    }
+
+    .article-content {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* ========== Utility Classes ========== */
+.avatar-placeholder {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.content-overlay {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
