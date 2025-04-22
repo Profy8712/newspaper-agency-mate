@@ -3,7 +3,7 @@ from . import views
 from django.contrib import admin
 from django.urls import path
 
-app_name = "newspaper"
+
 
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
@@ -28,3 +28,5 @@ urlpatterns = [
     path("redactors/<int:pk>/update/", views.RedactorUpdateView.as_view(), name="redactor-update"),
     path("redactors/<int:pk>/delete/", views.RedactorDeleteView.as_view(), name="redactor-delete"),
 ]
+
+app_name = "newspaper"

@@ -2,39 +2,43 @@
 
 {% block content %}
     <div class="hero">
-        <div class="container">
+        <div class="container text-center">
             <h1 class="display-4 fw-bold">Welcome to Newspaper Agency</h1>
             <p class="lead">Manage your newspapers, topics and redactors with our powerful platform</p>
         </div>
     </div>
 
     <div class="container">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="stat-card">
-                    <h2>{{ num_newspapers }}</h2>
-                    <p>Newspapers</p>
-                    <a href="{% url 'newspaper:newspaper-list' %}" class="btn btn-outline-primary mt-2">
-                        <i class="bi bi-file-text"></i> View all
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="stat-card">
-                    <h2>{{ num_redactors }}</h2>
-                    <p>Redactors</p>
-                    <a href="{% url 'newspaper:redactor-list' %}" class="btn btn-outline-primary mt-2">
-                        <i class="bi bi-people"></i> View all
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="stat-card">
-                    <h2>{{ num_topics }}</h2>
-                    <p>Topics</p>
-                    <a href="{% url 'newspaper:topic-list' %}" class="btn btn-outline-primary mt-2">
-                        <i class="bi bi-tags"></i> View all
-                    </a>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="stat-card text-center">
+                            <h2>{{ num_newspapers }}</h2>
+                            <p>Newspapers</p>
+                            <a href="{% url 'newspaper:newspaper-list' %}" class="btn btn-outline-primary mt-2">
+                                <i class="bi bi-file-text"></i> View all
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card text-center">
+                            <h2>{{ num_redactors }}</h2>
+                            <p>Redactors</p>
+                            <a href="{% url 'newspaper:redactor-list' %}" class="btn btn-outline-primary mt-2">
+                                <i class="bi bi-people"></i> View all
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card text-center">
+                            <h2>{{ num_topics }}</h2>
+                            <p>Topics</p>
+                            <a href="{% url 'newspaper:topic-list' %}" class="btn btn-outline-primary mt-2">
+                                <i class="bi bi-tags"></i> View all
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
