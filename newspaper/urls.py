@@ -7,6 +7,7 @@ from django.urls import path
 
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
+    path('newspapers/', views.NewspaperListView.as_view(), name='newspaper_list'),
 
     # Newspaper URLs
     path("newspapers/", views.NewspaperListView.as_view(), name="newspaper-list"),
@@ -30,3 +31,4 @@ urlpatterns = [
 ]
 
 app_name = "newspaper"
+

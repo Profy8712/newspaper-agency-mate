@@ -32,7 +32,7 @@ body {
     position: relative;
 
     /* Background image settings */
-    background: url('../img/newspaper.png') no-repeat center center;
+    background: url('../img/newspaper.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 

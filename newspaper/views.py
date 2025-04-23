@@ -173,3 +173,5 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Redactor
     template_name = "newspaper/redactor_confirm_delete.html"
     success_url = reverse_lazy("newspaper:redactor-list")
+
+
