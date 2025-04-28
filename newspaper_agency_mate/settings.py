@@ -25,9 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = ("django-insecure-p&%e38g@*(utxa@#&d(cocub6e&^4-dg+%ow$z76y+na%h_w0%")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = []
+
+
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -146,5 +148,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "newspaper.Redactor"
 
-LOGIN_REDIRECT_URL = "newspaper:newspaper_list"
+LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "newspaper:newspaper_list"
