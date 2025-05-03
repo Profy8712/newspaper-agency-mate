@@ -36,11 +36,14 @@ python manage.py runserver
 - Crispy Forms for beautiful forms
 - Responsive design
 - Smooth animations
-Test credentials for quick access:
 
-Username: user
-Password: user12345
-Live Demo Login
+Test credentials for quick access:
+- **login**: "user"
+- **Password**: "user12345"
+- ➡️ [Test user Login](https://newspaper-agency-mate-dllr.onrender.com/accounts/login/?next=/newspaper/)
+
+> Note: This test account has limited permissions.
+
 ## Demo
 
 ![Website Interface](demo.png)
