@@ -1,0 +1,21 @@
+{% extends "newspaper/../base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% if object %}Update{% else %}Create{% endif %} Topic{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">
+        {% if object %}Update{% else %}Create{% endif %} Topic
+    </h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">
+                {% if object %}Update{% else %}Create{% endif %}
+            </button>
+            <a href="{% url 'newspaper:topic-list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+{% endblock %}

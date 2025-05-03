@@ -1,0 +1,16 @@
+{% extends "newspaper/../base.html" %}
+
+{% block title %}Delete Redactor{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Delete Redactor</h1>
+
+    <p>Are you sure you want to delete the redactor <strong>"{{ redactor.username }}"</strong>?</p>
+    <p class="text-danger">This action cannot be undone.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'newspaper:redactor-detail' pk=redactor.pk %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,632 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add topic",
+    "content_type": 6,
+    "codename": "add_topic"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change topic",
+    "content_type": 6,
+    "codename": "change_topic"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete topic",
+    "content_type": 6,
+    "codename": "delete_topic"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view topic",
+    "content_type": 6,
+    "codename": "view_topic"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 7,
+    "codename": "add_redactor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 7,
+    "codename": "change_redactor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 7,
+    "codename": "delete_redactor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 7,
+    "codename": "view_redactor"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add newspaper",
+    "content_type": 8,
+    "codename": "add_newspaper"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change newspaper",
+    "content_type": 8,
+    "codename": "change_newspaper"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete newspaper",
+    "content_type": 8,
+    "codename": "delete_newspaper"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view newspaper",
+    "content_type": 8,
+    "codename": "view_newspaper"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "newspaper",
+    "model": "topic"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "newspaper",
+    "model": "redactor"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "newspaper",
+    "model": "newspaper"
+  }
+},
+{
+  "model": "newspaper.topic",
+  "pk": 1,
+  "fields": {
+    "name": "Politics"
+  }
+},
+{
+  "model": "newspaper.topic",
+  "pk": 2,
+  "fields": {
+    "name": "Crime"
+  }
+},
+{
+  "model": "newspaper.topic",
+  "pk": 3,
+  "fields": {
+    "name": "Business"
+  }
+},
+{
+  "model": "newspaper.topic",
+  "pk": 4,
+  "fields": {
+    "name": "Art"
+  }
+},
+{
+  "model": "newspaper.topic",
+  "pk": 5,
+  "fields": {
+    "name": "Trade"
+  }
+},
+{
+  "model": "newspaper.topic",
+  "pk": 6,
+  "fields": {
+    "name": "Weather"
+  }
+},
+{
+  "model": "newspaper.redactor",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$cBqNMSoGXTnHs5e6FkRfSR$8cl6HpdqP95phaBXUqExcaBroOXP+FtgXihH7iMzV38=",
+    "last_login": "2025-04-24T09:34:49.101Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@examle.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-04-23T17:51:40.557Z",
+    "years_of_experience": 0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "newspaper.redactor",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$oT3E4NvKJO6I4ZYVtO4uIb$+562dDw01owFvgnyYkQtKcAu9uZQJYPU+rJzHufdlCU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "alex_tech",
+    "first_name": "Alex",
+    "last_name": "Johnson",
+    "email": "alex.johnson@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-23T18:03:35.384Z",
+    "years_of_experience": 7,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "newspaper.redactor",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$aM8Fc1bGPCAMpo3sfRLXif$NVPeBDExYfX27TCljaSqjmUDfxsJZJ+cveaKFfbm08E=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "polit_editor",
+    "first_name": "James",
+    "last_name": "Carter",
+    "email": "politics@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-24T09:43:30.419Z",
+    "years_of_experience": 12,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "newspaper.redactor",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$qbedc59t19gL0vI3cs8Ovo$l+QysuPutbYknyFkTofZQ6EpS1d7ZWzBuU4PH/BGvMg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "crime_desk",
+    "first_name": "Sarah r",
+    "last_name": "Mille",
+    "email": "crime@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-24T09:44:21.480Z",
+    "years_of_experience": 8,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "newspaper.redactor",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$0qR8KFBLerfnxVvM5DAjAw$p4v11uMDr5KjKUxxJu1ncP4jUmv0hr2zdkFLrWt/WzE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "biz_analyst",
+    "first_name": "Robert",
+    "last_name": "Johnson",
+    "email": "business@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-24T09:45:26.360Z",
+    "years_of_experience": 10,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "newspaper.redactor",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$lWNxUdzPbsn4Sxwu6kRJKp$oqOxlg9tR3lZbQUrj4CpVtm3Sg6P1L3S9JMDSmMwcg0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "art_critic",
+    "first_name": "Emily",
+    "last_name": "Davis",
+    "email": "arts@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-24T09:46:17.360Z",
+    "years_of_experience": 6,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "newspaper.redactor",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$9JL6cGZMkOyOm1mhXM2LoF$NP9sCHRuP4kM1NmE650XqS2SDFkzwoX53L8xVqxZ+Jw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "trade_expert",
+    "first_name": "Michael",
+    "last_name": "Wilson",
+    "email": "trade@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-24T09:47:13.602Z",
+    "years_of_experience": 9,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "newspaper.redactor",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$wCAReLnWyHYzMvYA35nw1m$PoCewzC9Mk34AM6KwXq7KALGKHggBcSdxtbPRhsuJjw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "weather_pro",
+    "first_name": "Laura",
+    "last_name": "Thompson",
+    "email": "weather@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-24T09:48:49.893Z",
+    "years_of_experience": 5,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "newspaper.newspaper",
+  "pk": 1,
+  "fields": {
+    "title": "Bitcoin Falls to the Bottom!",
+    "content": "\"The cryptocurrency Bitcoin has hit a yearly low, causing panic among investors. Experts attribute this to tightening regulations in the US and China. What does the future hold for the market in the coming months?\"",
+    "published_date": "2025-04-23",
+    "topic": 5,
+    "publishers": [
+      1,
+      13
+    ]
+  }
+},
+{
+  "model": "newspaper.newspaper",
+  "pk": 2,
+  "fields": {
+    "title": "\"Is IT Still the Best Sphere to Work?\"",
+    "content": "\"The IT industry continues to attract millions of professionals, but competition is growing. Analysts debate whether IT remains the most profitable and stable career path in 2025.\"",
+    "published_date": "2025-04-23",
+    "topic": 3,
+    "publishers": [
+      1,
+      11
+    ]
+  }
+},
+{
+  "model": "newspaper.newspaper",
+  "pk": 3,
+  "fields": {
+    "title": "\"New Art Exhibition Shocks the World\"",
+    "content": "\"A contemporary art exhibition in Berlin features artists using neural networks to create paintings. Critics are divided: is this a revolution or the end of traditional art?\"",
+    "published_date": "2025-04-23",
+    "topic": 4,
+    "publishers": [
+      1,
+      12
+    ]
+  }
+},
+{
+  "model": "newspaper.newspaper",
+  "pk": 4,
+  "fields": {
+    "title": "\"Political Scandal: Corruption in High Offices\"",
+    "content": "\"An investigative report reveals corruption schemes among high-ranking officials. The public is demanding immediate resignations and reforms.\"",
+    "published_date": "2025-04-23",
+    "topic": 1,
+    "publishers": [
+      1,
+      9
+    ]
+  }
+},
+{
+  "model": "newspaper.newspaper",
+  "pk": 5,
+  "fields": {
+    "title": "\"Trade Wars: New Tariffs Announced\"",
+    "content": "\"The US has imposed new tariffs on goods from Europe and Asia. Experts predict price hikes and a slowdown in the global economy.\"",
+    "published_date": "2025-04-23",
+    "topic": 5,
+    "publishers": [
+      1,
+      13
+    ]
+  }
+},
+{
+  "model": "newspaper.newspaper",
+  "pk": 6,
+  "fields": {
+    "title": "\"Extreme Weather: Record Heatwave Hits Europe\"",
+    "content": "\"Europe is experiencing its most severe heatwave in 50 years. Scientists link it to climate change and call for urgent action.\"",
+    "published_date": "2025-04-23",
+    "topic": 6,
+    "publishers": [
+      1,
+      14
+    ]
+  }
+}
+]

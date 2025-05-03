@@ -1,0 +1,16 @@
+{% extends "newspaper/../base.html" %}
+
+{% block title %}Delete Newspaper{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Delete Newspaper</h1>
+
+    <p>Are you sure you want to delete the newspaper <strong>"{{ newspaper.title }}"</strong>?</p>
+    <p class="text-danger">This action cannot be undone.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.pk %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
