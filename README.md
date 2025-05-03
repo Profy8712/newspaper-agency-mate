@@ -1,6 +1,6 @@
 # newspaper-agency-mate
 
-[Newspaper Agency deployed to render](https://newspaper-agency-mate-dllr.onrender.com/newspaper//)
+[Newspaper Agency deployed to render](https://newspaper-agency-mate-dllr.onrender.com/newspaper/)
 
 A Django-based system for managing newspapers, topics and redactors with beautiful frontend.
 
