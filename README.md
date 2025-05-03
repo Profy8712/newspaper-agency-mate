@@ -36,11 +36,11 @@ python manage.py runserver
 - Crispy Forms for beautiful forms
 - Responsive design
 - Smooth animations
-- 
-Test User
-For admin access:
+Test credentials for quick access:
+
 Username: user
 Password: user12345
+Live Demo Login
 ## Demo
 
 ![Website Interface](demo.png)
