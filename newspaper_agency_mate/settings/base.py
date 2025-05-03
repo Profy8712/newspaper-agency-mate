@@ -15,7 +15,7 @@ load_dotenv(BASE_DIR / ".env")
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-# Application definition
+# Application definitiongit
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
