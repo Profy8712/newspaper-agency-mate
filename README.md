@@ -37,6 +37,10 @@ python manage.py runserver
 - Responsive design
 - Smooth animations
 - 
+Test User
+For admin access:
+Username: user
+Password: user12345
 ## Demo
 
 ![Website Interface](demo.png)
